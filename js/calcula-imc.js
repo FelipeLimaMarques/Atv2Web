@@ -1,9 +1,9 @@
+// Altera tag h1 com classe .titulo
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida Nutricionista";
 
-
-
 var pacientes = document.querySelectorAll(".paciente");
+
 for (var i = 0; i < pacientes.length; i++)
 {
     var paciente = pacientes[i];
@@ -17,7 +17,6 @@ for (var i = 0; i < pacientes.length; i++)
 
     var alturaEhValida = true;
     var pesoEhValido = true;
-
 
     if (peso <= 0 || peso > 1000) {
         console.log("Peso inválido!");
@@ -41,6 +40,6 @@ for (var i = 0; i < pacientes.length; i++)
 function calculaImc(peso, altura)
 {
     var imc = peso / (altura * altura);
-    console.log("DISGRAÇA");
+    //console.log("Calculo de IMC funcionando. Retornando: " + imc.toFixed(2));
     return imc.toFixed(2);
 }
