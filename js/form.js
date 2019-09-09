@@ -8,6 +8,16 @@ botaoAdicionar.addEventListener("click", function(){
 
     var paciente = obtemPacienteDoFormulario(form);
 
+    // Validar paciente
+    erros = validaPaciente(paciente);
+
+    if(erros.length > 0)
+    {
+        exibeErros(erros);
+        console.log("Paciente Inválido");
+        return;
+    }
+
     var pacienteTr = montaTr(paciente);
     
     var tabela = document.querySelector("#tabela-pacientes");
@@ -15,6 +25,16 @@ botaoAdicionar.addEventListener("click", function(){
     tabela.appendChild(pacienteTr);
     form.reset();
 });
+
+function exibeErros(erros)
+{
+    var ulErros = document.querySelector("#mensagem-erro");
+    erros.forEach(function(erro) {
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ulErros.appendChild(li);
+    });
+}
 
 function obtemPacienteDoFormulario(form)
 {
